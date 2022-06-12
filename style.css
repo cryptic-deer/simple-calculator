@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 :root {
-	--color-background: #a4b3d7;
+	--color-background: #a8b7d9;
 	--color-primary: #e2e2e2;
-	--color-secondary: #4e484f;
+	--color-primary-faded: #e2e2e2e5;
+	--color-secondary: #4d474f;
 	--color-screen: #586283;
 }
 
@@ -15,50 +18,70 @@ html {
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
+	font-family: "Poppins", sans-serif;
 }
 body {
 	background-color: var(--color-background);
 }
-
-main {
-	width: 400px;
-	height: 600px;
-	padding: 25px;
+.calculator-grid {
 	background-color: var(--color-primary);
-	border-radius: 25px;
+	border-radius: 20px;
+	display: grid;
 	margin: 100px auto;
+	justify-content: center;
+	align-content: center;
+	grid-template-columns: repeat(4, 100px);
+	grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+	width: 450px;
+	height: 675px;
 }
 
-.screen {
-	height: 75px;
-	background-color: var(--color-screen);
-	font-size: 32px;
+.calculator-grid > button {
+	cursor: pointer;
+	font-size: 2rem;
+	font-weight: 600;
+	border: 1px solid white;
+	outline: none;
+	background-color: var(--color-secondary);
 	color: var(--color-primary);
-	text-align: right;
-	word-wrap: break-word;
-	word-break: break-all;
-	padding-right: 10px;
+	border-radius: 15px;
+	margin: 5px;
+	font-family: "Poppins", sans-serif;
 }
-.previous {
-	height: 25px;
-	font-size: 20px;
-	padding-top: 4px;
+
+.calculator-grid > button:hover {
+	background-color: rgba(255, 255, 255, 0.9);
 }
-.current {
-	padding-top: 15px;
-}
-.buttons-container {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 7.5px;
-	margin-top: 20px;
-}
-.span-2 {
+
+.span-two {
 	grid-column: span 2;
 }
-button {
-	cursor: pointer;
-	font-size: 20px;
-	padding: 5px;
-	height: 82px;
+.output {
+	grid-column: 1 / -1;
+	background-color: var(--color-screen);
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: 15px 40px 10px;
+	margin-bottom: 20px;
+	word-wrap: break-word;
+	word-break: break-all;
+	border-radius: 15% 15% 15% 15% / 80% 80% 80% 80%;
+	font-weight: 500;
+	max-height: 100px;
+}
+
+.output .previous-operand {
+	color: var(--color-primary-faded);
+	font-size: 1.25rem;
+	line-height: 1.25rem;
+	overflow: hidden;
+}
+
+.output .current-operand {
+	color: var(--color-primary);
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	overflow: hidden;
 }
