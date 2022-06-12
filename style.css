@@ -24,7 +24,7 @@ body {
 	background-color: var(--color-background);
 }
 .calculator-grid {
-	background-color: var(--color-primary);
+	background-color: var(--color-secondary);
 	border-radius: 20px;
 	display: grid;
 	margin: 100px auto;
@@ -34,19 +34,21 @@ body {
 	grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 	width: 450px;
 	height: 675px;
+	box-shadow: 15px 15px 30px #332f34, inset -5px -5px 12px #3e393f,
+		inset 5px 5px 12px #5c555f;
 }
 
 .calculator-grid > button {
 	cursor: pointer;
 	font-size: 2rem;
 	font-weight: 600;
-	border: 1px solid white;
-	outline: none;
-	background-color: var(--color-secondary);
-	color: var(--color-primary);
-	border-radius: 15px;
+	color: var(--color-secondary);
 	margin: 5px;
 	font-family: "Poppins", sans-serif;
+
+	border-radius: 15px;
+	background: linear-gradient(145deg, #f2f2f2, #cbcbcb);
+	box-shadow: 3px 3px 10px #1f1c20, -3px -3px 10px #7b727e;
 }
 
 .calculator-grid > button:hover {
@@ -55,6 +57,22 @@ body {
 
 .span-two {
 	grid-column: span 2;
+}
+.calculator-grid > button.clear {
+	background: linear-gradient(145deg, #e6bb67, #c29e56);
+	color: #1f1c20;
+}
+.calculator-grid > button.delete {
+	background: linear-gradient(145deg, #ff8080, #e66c6c);
+	color: #1f1c20;
+}
+.calculator-grid > button.equals {
+	background: linear-gradient(145deg, #acc68f, #91a779);
+	color: #1f1c20;
+}
+.calculator-grid > button[data-operation] {
+	background: linear-gradient(145deg, #addbdb, #92b9b9);
+	color: #1f1c20;
 }
 .output {
 	grid-column: 1 / -1;
@@ -70,6 +88,7 @@ body {
 	border-radius: 15% 15% 15% 15% / 80% 80% 80% 80%;
 	font-weight: 500;
 	max-height: 100px;
+	box-shadow: inset 5px 5px 23px #272b3a, inset -5px -5px 23px #8999cc;
 }
 
 .output .previous-operand {
